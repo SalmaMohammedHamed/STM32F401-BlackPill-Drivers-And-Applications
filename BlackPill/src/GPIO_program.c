@@ -124,3 +124,66 @@ void GPIO_voidSetPinValue(u8 Copy_PORT,u8 Copy_PIN, u8 Copy_Value)
 	/**< RETURN ERROR STATUS */
 }
 
+void GPIO_voidSetPinDirInput(u8 Copy_PORT, u8 Copy_PIN,u8 Copy_PullUpDir)
+{
+	switch(Copy_PORT)
+		{
+			case GPIO_PORTA:
+				if(Copy_PIN < 16)
+				{
+
+					GPIOA_MODER &= ~((0b11) << (Copy_PIN * 2));
+					GPIOA_MODER |= ((input) << (Copy_PIN * 2));
+					GPIOA_PUPDR &= ~((0b11) << (Copy_PIN * 2));
+					GPIOA_PUPDR |= ((Copy_PullUpDir) << (Copy_PIN * 2));
+				}
+			break;
+			case GPIO_PORTB:
+				if(Copy_PIN < 16)
+				{
+					GPIOB_MODER &= ~((0b11) << (Copy_PIN * 2));
+					GPIOB_MODER |= ((input) << (Copy_PIN * 2));
+					GPIOB_PUPDR &= ~((0b11) << (Copy_PIN * 2));
+					GPIOB_PUPDR |= ((Copy_PullUpDir) << (Copy_PIN * 2));
+				}
+				else
+				{
+					/**< RETURN ERROR STATUS */
+				}
+			break;
+			case GPIO_PORTC:
+				if(Copy_PIN < 16)
+				{
+					GPIOC_MODER &= ~((0b11) << (Copy_PIN * 2));
+					GPIOC_MODER |= ((input) << (Copy_PIN * 2));
+					GPIOC_PUPDR &= ~((0b11) << (Copy_PIN * 2));
+					GPIOC_PUPDR |= ((Copy_PullUpDir) << (Copy_PIN * 2));
+				}
+				else
+				{
+					/**< RETURN ERROR STATUS */
+				}
+			break;
+			default:
+				/**< RETURN ERROR STATUS */
+			break;
+		}
+		/**< RETURN ERRORSTATUS */
+}
+u8  GPIO_u8GetPinValue(u8 Copy_PORT, u8 Copy_PIN)
+{
+	u8 Local_u8ReturnPinValue = 0;
+	if(Copy_PIN < 16)
+	{
+		switch(Copy_PORT)
+		{
+			case GPIO_PORTA: Local_u8ReturnPinValue = GET_BIT(GPIOA_IDR, Copy_PIN); break;
+			case GPIO_PORTB: Local_u8ReturnPinValue = GET_BIT(GPIOB_IDR, Copy_PIN); break;
+			case GPIO_PORTC: Local_u8ReturnPinValue = GET_BIT(GPIOC_IDR , Copy_PIN); break;
+		}
+	}
+	else
+	{
+		/**< RETURN ERROR STATUS */
+	}
+	return Local_u8ReturnPinValue;}
