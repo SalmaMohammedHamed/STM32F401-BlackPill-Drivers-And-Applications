@@ -8,6 +8,8 @@ C_SRCS += \
 ../src/GPIO_program.c \
 ../src/NVIC_program.c \
 ../src/RCC_program.c \
+../src/SYSCFG_program.c \
+../src/SysTick_program.c \
 ../src/main.c 
 
 OBJS += \
@@ -15,6 +17,8 @@ OBJS += \
 ./src/GPIO_program.o \
 ./src/NVIC_program.o \
 ./src/RCC_program.o \
+./src/SYSCFG_program.o \
+./src/SysTick_program.o \
 ./src/main.o 
 
 C_DEPS += \
@@ -22,6 +26,8 @@ C_DEPS += \
 ./src/GPIO_program.d \
 ./src/NVIC_program.d \
 ./src/RCC_program.d \
+./src/SYSCFG_program.d \
+./src/SysTick_program.d \
 ./src/main.d 
 
 

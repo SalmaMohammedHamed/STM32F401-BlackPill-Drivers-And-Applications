@@ -17,7 +17,7 @@
  *		RCC_HSI
  *		RCC_PLL
  */
-#define RCC_CLOCK_TYPE				RCC_HSE_CRYSTAL
+#define RCC_CLOCK_TYPE				RCC_HSI
 
 /** YOUR OPTIONS:
  *		RCC_PLL_IN_HSI_DIV_2
