@@ -47,7 +47,7 @@ void GPIO_voidSetPinDirOutput(u8 Copy_PORT, u8 Copy_PIN,u8 Copy_Type,u8 Copy_Spe
 void GPIO_voidSetPinValue(u8 Copy_PORT,u8 Copy_PIN, u8 Copy_Value);
 void GPIO_voidSetPinDirInput(u8 Copy_PORT, u8 Copy_PIN,u8 Copy_PullUpDir);
 u8  GPIO_u8GetPinValue(u8 Copy_PORT, u8 Copy_PIN);
-void GPIO_voidSetPortValue(u8 Copy_PORT ,u32 Copy_Value);
+void GPIO_voidSetPortValue(u8 Copy_PORT ,u16 Copy_Value);
 void GPIO_voidSetPortDir(u8 Copy_PORT,u32 Copy_DirL,u32 Copy_DirH);
 u8 GPIO_u8LockPin(u8 Copy_PORT, u8 Copy_PIN);
 

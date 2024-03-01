@@ -6,7 +6,9 @@
 C_SRCS += \
 ../src/EXTI_program.c \
 ../src/GPIO_program.c \
+../src/Lcd_Program.c \
 ../src/NVIC_program.c \
+../src/OS_program.c \
 ../src/RCC_program.c \
 ../src/SYSCFG_program.c \
 ../src/SysTick_program.c \
@@ -15,7 +17,9 @@ C_SRCS += \
 OBJS += \
 ./src/EXTI_program.o \
 ./src/GPIO_program.o \
+./src/Lcd_Program.o \
 ./src/NVIC_program.o \
+./src/OS_program.o \
 ./src/RCC_program.o \
 ./src/SYSCFG_program.o \
 ./src/SysTick_program.o \
@@ -24,7 +28,9 @@ OBJS += \
 C_DEPS += \
 ./src/EXTI_program.d \
 ./src/GPIO_program.d \
+./src/Lcd_Program.d \
 ./src/NVIC_program.d \
+./src/OS_program.d \
 ./src/RCC_program.d \
 ./src/SYSCFG_program.d \
 ./src/SysTick_program.d \

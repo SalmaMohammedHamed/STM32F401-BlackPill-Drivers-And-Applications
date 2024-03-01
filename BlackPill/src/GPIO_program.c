@@ -186,4 +186,15 @@ u8  GPIO_u8GetPinValue(u8 Copy_PORT, u8 Copy_PIN)
 	{
 		/**< RETURN ERROR STATUS */
 	}
-	return Local_u8ReturnPinValue;}
+	return Local_u8ReturnPinValue;
+}
+
+void GPIO_voidSetPortValue(u8 Copy_PORT ,u16 Copy_Value)
+{
+	switch(Copy_PORT)
+	{
+		case GPIO_PORTA: GPIOA_ODR=Copy_Value; break;
+		case GPIO_PORTB: GPIOB_ODR=Copy_Value; break;
+		case GPIO_PORTC: GPIOB_ODR=Copy_Value; break;
+	}
+	}
