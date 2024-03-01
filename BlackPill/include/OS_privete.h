@@ -11,9 +11,9 @@
 typedef struct
 {
 	u16 period;
-	void (*Fptr) (void);
 	u8 FirstDelay;
 	u8 State;
+	void (*Fptr) (void);
 }Task;
 
 enum States{

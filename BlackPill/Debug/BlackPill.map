@@ -3278,12 +3278,12 @@ Discarded input sections
  .data          0x00000000        0x0 ./src/OS_program.o
  .bss           0x00000000        0x0 ./src/OS_program.o
  .text.Scheduler
-                0x00000000       0x58 ./src/OS_program.o
+                0x00000000       0x50 ./src/OS_program.o
  .text.OS_voidCreateTask
-                0x00000000       0x1c ./src/OS_program.o
+                0x00000000       0x18 ./src/OS_program.o
  .text.OS_voidStart
                 0x00000000       0x18 ./src/OS_program.o
- .bss.OSTasks   0x00000000       0x18 ./src/OS_program.o
+ .bss.OSTasks   0x00000000       0x10 ./src/OS_program.o
  .bss.TickCounts.3687
                 0x00000000        0x4 ./src/OS_program.o
  .debug_info    0x00000000      0x1d2 ./src/OS_program.o
@@ -3301,7 +3301,7 @@ Discarded input sections
  .debug_line    0x00000000      0x105 ./src/OS_program.o
  .debug_str     0x00000000     0x3110 ./src/OS_program.o
  .comment       0x00000000       0x7f ./src/OS_program.o
- .debug_frame   0x00000000       0x68 ./src/OS_program.o
+ .debug_frame   0x00000000       0x5c ./src/OS_program.o
  .ARM.attributes
                 0x00000000       0x33 ./src/OS_program.o
  .group         0x00000000        0xc ./src/RCC_program.o

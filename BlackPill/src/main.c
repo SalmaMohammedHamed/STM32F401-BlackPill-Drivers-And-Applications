@@ -8,6 +8,7 @@
 #include "SysTick_interface.h"
 #include "SYSCFG_interface.h"
 #include "OS_interface.h"
+#include "DMA_interface.h"
 #include "Lcd_Interface.h"
 void delay(u16 time)
 {
@@ -61,18 +62,23 @@ void atia (void)
 }
 int main(void)
 {
+	u32 Arr1[1000]=0;
+	u32 Arr2[1000];
 
+	u32 Arr3[1000]=0;
+	u32 Arr4[1000];
 	RCC_voidInitSysClock();
 	RCC_voidEnableClock(RCC_AHB, 0);
+	RCC_voidEnableClock(RCC_AHB, 21);
 	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN0,PushPull,LowSpeed);
 	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN1,PushPull,LowSpeed);
-	EXTI_vidSetCallBack(0,ahmed);
-	EXTI_vidSetCallBack(1,atia);
-	NVIC_voidSetPriority(6,1,0);
-	NVIC_voidSetPriority(7,0,0);
-	NVIC_voidEnableInterrupt(6);
-	NVIC_voidEnableInterrupt(7);
-	NVIC_voidSetPendingFlag(6);
+	DMA_voidChannelInit();
+	NVIC_voidEnableInterrupt(11);
+	DMA_voidChannelStart(Arr1,Arr2,1000);
+	for (u16 i=0;i<1000;i++)
+	{
+		Arr4[i]=Arr3[i];
+	}
 
   while (1)
   {
@@ -80,4 +86,5 @@ int main(void)
   }
 
 }
-
+/*ISR*/
+/*clear the flags*/
