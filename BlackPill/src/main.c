@@ -62,23 +62,28 @@ void atia (void)
 }
 int main(void)
 {
-	u32 Arr1[1000]=0;
-	u32 Arr2[1000];
+	u32 Arr1=0;
+	u32 Arr2;
 
-	u32 Arr3[1000]=0;
+	u32 Arr3[1000]={0};
 	u32 Arr4[1000];
 	RCC_voidInitSysClock();
 	RCC_voidEnableClock(RCC_AHB, 0);
 	RCC_voidEnableClock(RCC_AHB, 21);
+	RCC_voidEnableClock(RCC_AHB, 22);
 	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN0,PushPull,LowSpeed);
 	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN1,PushPull,LowSpeed);
-	DMA_voidChannelInit();
+	DMA_voidChannelInit(0,0);
 	NVIC_voidEnableInterrupt(11);
-	DMA_voidChannelStart(Arr1,Arr2,1000);
+	DMA_voidChannelStart(0,&Arr1,&Arr2,1);
+	//NVIC_voidSetPendingFlag(11);
 	for (u16 i=0;i<1000;i++)
 	{
 		Arr4[i]=Arr3[i];
+
+
 	}
+
 
   while (1)
   {
@@ -88,3 +93,8 @@ int main(void)
 }
 /*ISR*/
 /*clear the flags*/
+void DMA1_Stream0_IRQHandler(void)
+{
+	GPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN0,HIGH);
+	while(1);
+}

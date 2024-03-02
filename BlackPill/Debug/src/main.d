@@ -4,7 +4,7 @@ src/main.o: ../src/main.c ../include/definition.h \
  ../include/NVIC_interface.h ../include/NVIC.private.h \
  ../include/EXTI_interface.h ../include/SysTick_interface.h \
  ../include/SYSCFG_interface.h ../include/OS_interface.h \
- ../include/Lcd_Interface.h
+ ../include/DMA_interface.h ../include/Lcd_Interface.h
 
 ../include/definition.h:
 
@@ -27,5 +27,7 @@ src/main.o: ../src/main.c ../include/definition.h \
 ../include/SYSCFG_interface.h:
 
 ../include/OS_interface.h:
+
+../include/DMA_interface.h:
 
 ../include/Lcd_Interface.h:
