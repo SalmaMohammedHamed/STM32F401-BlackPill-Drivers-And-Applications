@@ -42,6 +42,7 @@
 /*****************pullup/down**************************/
 #define PullUp   0b01
 #define PullDown 0b10
+#define Floating 0b00
 
 void GPIO_voidSetPinDirOutput(u8 Copy_PORT, u8 Copy_PIN,u8 Copy_Type,u8 Copy_Speed);
 void GPIO_voidSetPinValue(u8 Copy_PORT,u8 Copy_PIN, u8 Copy_Value);

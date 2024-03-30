@@ -10,9 +10,9 @@
 #include "definition.h"
 #include "GPIO_interface.h"
 #include "SysTick_interface.h"
-#include "STB_interface.h"
-#include "STB_config.h"
-#include "STP_private.h"
+#include "STP_interface.h"
+#include "STP_config.h"
+
 
 
 void STP_voidSendSync(u8 Copy_u8DataToSend)

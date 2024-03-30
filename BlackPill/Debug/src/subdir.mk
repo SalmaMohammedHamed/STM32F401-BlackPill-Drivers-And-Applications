@@ -11,8 +11,10 @@ C_SRCS += \
 ../src/NVIC_program.c \
 ../src/OS_program.c \
 ../src/RCC_program.c \
+../src/STP_program.c \
 ../src/SYSCFG_program.c \
 ../src/SysTick_program.c \
+../src/UART_program.c \
 ../src/main.c 
 
 OBJS += \
@@ -23,8 +25,10 @@ OBJS += \
 ./src/NVIC_program.o \
 ./src/OS_program.o \
 ./src/RCC_program.o \
+./src/STP_program.o \
 ./src/SYSCFG_program.o \
 ./src/SysTick_program.o \
+./src/UART_program.o \
 ./src/main.o 
 
 C_DEPS += \
@@ -35,8 +39,10 @@ C_DEPS += \
 ./src/NVIC_program.d \
 ./src/OS_program.d \
 ./src/RCC_program.d \
+./src/STP_program.d \
 ./src/SYSCFG_program.d \
 ./src/SysTick_program.d \
+./src/UART_program.d \
 ./src/main.d 
 
 

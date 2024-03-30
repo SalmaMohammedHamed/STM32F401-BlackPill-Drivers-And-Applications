@@ -7,8 +7,8 @@
 #include "EXTI_interface.h"
 #include "SysTick_interface.h"
 #include "SYSCFG_interface.h"
+#include "UART_interface.h"
 #include "OS_interface.h"
-#include "DMA_interface.h"
 #include "Lcd_Interface.h"
 void delay(u16 time)
 {
@@ -62,39 +62,28 @@ void atia (void)
 }
 int main(void)
 {
-	u32 Arr1=0;
-	u32 Arr2;
-
-	u32 Arr3[1000]={0};
-	u32 Arr4[1000];
 	RCC_voidInitSysClock();
-	RCC_voidEnableClock(RCC_AHB, 0);
-	RCC_voidEnableClock(RCC_AHB, 21);
-	RCC_voidEnableClock(RCC_AHB, 22);
-	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN0,PushPull,LowSpeed);
-	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN1,PushPull,LowSpeed);
-	DMA_voidChannelInit(0,0);
-	NVIC_voidEnableInterrupt(11);
-	DMA_voidChannelStart(0,&Arr1,&Arr2,1);
-	//NVIC_voidSetPendingFlag(11);
-	for (u16 i=0;i<1000;i++)
-	{
-		Arr4[i]=Arr3[i];
-
-
-	}
-
-
+	RCC_voidEnableClock(RCC_AHB,0);
+	RCC_voidEnableClock(RCC_APB2,4);
+	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN9, PushPull,HighSpeed);
+	GPIO_voidSetPinDirOutput(GPIO_PORTA,GPIO_PIN0, PushPull,HighSpeed);
+	GPIO_voidSetPinDirInput(GPIO_PORTA,GPIO_PIN10,Floating);
+	UART_voidInit();
+	u8 x;
+	u8 y='a';
   while (1)
   {
+	  UART_voidTransmit(&y);
+	  x = UART_u8Recieve();
+	  if (x=='5')
+	  {
+		  GPIO_voidSetPinValue(GPIO_PORTA , GPIO_PIN0 , HIGH );
+	  }
+	  else if (x=='a')
+	  {
+		  GPIO_voidSetPinValue(GPIO_PORTA , GPIO_PIN0 , Low );
 
+	  }
   }
 
-}
-/*ISR*/
-/*clear the flags*/
-void DMA1_Stream0_IRQHandler(void)
-{
-	GPIO_voidSetPinValue(GPIO_PORTA,GPIO_PIN0,HIGH);
-	while(1);
 }
